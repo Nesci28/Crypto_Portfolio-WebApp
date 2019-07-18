@@ -19,9 +19,14 @@ fetch(url)
   .then(function(data) {
     const insideData = data.balance;
     const container = document.getElementById("container");
+    const plan = document.getElementById("plan");
     Object.keys(insideData).forEach(key => {
       if (typeof data.balance[key] == "object") {
         console.log(data.balance[key]);
+
+        // Creation of a container
+        let container = document.createElement("div");
+        container.classList.add("container");
 
         // Creation of the border box
         let box = document.createElement("div");
@@ -51,8 +56,9 @@ fetch(url)
         box.appendChild(ticker);
         box.appendChild(grid);
         container.appendChild(box);
+        plan.appendChild(container);
       }
-    }, container);
+    });
   })
   .catch(function(err) {
     console.log(err);
