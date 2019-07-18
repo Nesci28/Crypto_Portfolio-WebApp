@@ -12,6 +12,7 @@ const db = monk(
   `${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_URL}`
 );
 const balanceDB = db.get(`${process.env.DB_COLLECTION}`);
+console.log(balanceDB);
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Serving static files
 app.use(express.static(__dirname + "/public"));
 
 // Routes
