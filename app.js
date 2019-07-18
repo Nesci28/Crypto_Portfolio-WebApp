@@ -25,6 +25,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(express.static(__dirname + "/public"));
+
 // Routes
 app.use("/api/v1/db", async function(req, res, next) {
   const balance = await balanceDB.findOne({ _id: 1 });
@@ -32,7 +34,7 @@ app.use("/api/v1/db", async function(req, res, next) {
 });
 
 app.use("/", async function(req, res, next) {
-  res.sendFile(path.join(__dirname + "/index.html"));
+  res.sendFile(path.join(__dirname + "/public/index.html"));
 });
 
 const PORT = process.env.PORT || 5000;
