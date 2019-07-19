@@ -6,6 +6,8 @@ fetch(url)
   .then(resp => resp.json())
   .then(function(data) {
     const insideData = data.balance;
+    const bitcoin = document.getElementById("btcprice");
+    bitcoin.innerHTML = insideData.Bitcoin;
     const updateTime = document.querySelector("#title");
     const time =
       new Date(insideData.Time)
@@ -94,7 +96,6 @@ fetch(url)
         plan.appendChild(container);
       }
     });
-    console.log(document.getElementById("#totalBTC"));
     document.querySelector("#totalBTC").innerHTML = parseFloat(
       totalBTC.toFixed(8)
     );
