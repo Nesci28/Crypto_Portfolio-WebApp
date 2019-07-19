@@ -8,17 +8,42 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link
       rel="stylesheet"
-      @media="screen and (max-width: 768px)"
+      @media="screen and (max-width: 1000px)"
       href="/css/mobile.css"
     />
     <title>Mining Report | Current</title>
   </head>
   <body>
+    <iframe
+      src="https://nesci.grafana.net/d/-qNX14NZz/total-in-btc?orgId=1&from=1563484798824&to=1563495598825"
+      width="650"
+      height="300"
+      frameborder="0"
+    >
+    </iframe>
     <nav>
       <img src="/img/logo.png" alt="Logo" />
-      <h1 class="date" id="title"></h1>
+      <h1>Mining Report</h1>
     </nav>
+    <div class="times">
+      <div class="lastTime">
+        <h3 class="date">Last Update:</h3>
+        <h3 class="date" id="title"></h3>
+      </div>
+      <div class="currentTime">
+        <h3 class="date">Current time:</h3>
+        <h3 class="date" id="title-date"></h3>
+      </div>
+    </div>
     <div class="plan" id="plan"></div>
+    <div class="line"></div>
+    <div id="total">
+      <h3>Total</h3>
+      <div class="totalGrid">
+        <p>Total BTC: <span id="totalBTC"></span></p>
+        <p>Total USD: <span id="totalUSD"></span></p>
+      </div>
+    </div>
     <script src="/js/main.js"></script>
   </body>
 </html>
